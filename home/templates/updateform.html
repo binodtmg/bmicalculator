@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    {% include 'components/navbar.html' %}
+{% endblock navbar%}
+ {% block content %}
+ <form method="POST">
+     {% csrf_token%}
+     {{ form.as_p }}
+     <input type="submit" name="submit" value="Submit"/>
+     <!-- <div class="form">
+        <label> Name : </label>
+        <input type="name" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
+      </div>
+      <div class="form">
+        <label> Weight : </label>
+        <input type="number" name="weight" id="weight" class="form-control" min="0"  step="any" placeholder="Enter your weight in kg" required>
+      </div>
+      <div class="form">
+        <label> Height : </label>
+        <input type="number" name="height" id="height" class="form-control" min="0"  step="any" placeholder="Enter your height in meter" required>
+      </div>
+      {% if bmi %}
+      <div class="form">
+        <label> BMI : </label>
+        <input type="number" name="bmi" id="bmi" class="form-control" value="{{ bmi }}">
+      </div>
+      {% endif %}
+      <br>
+      <button type="submit" class="btn btn-success">Calculate BMI</button>
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success" value="save" name="save">Save</button>
+      </form>
+    </form>
+  </div> -->
+ </form>
+ {% endblock %}

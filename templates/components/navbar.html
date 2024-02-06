@@ -1,0 +1,30 @@
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(54, 52, 52);">
+    <div class="container-fluid" style="background-color: rgb(54, 52, 52); height: 60px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01" >
+        <a class="navbar-brand" href="#" style="color: wheat;">Body Mass Index</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'user:profile' %}" style="color: wheat;">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home:bmiform' %}" style="color: wheat;">Bmi Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home:bmiuserlist' %}" style="color: wheat;">Bmi User List</a>
+          </li>
+        </ul>
+        <form class="d-flex" style="padding-right: 20px;">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <form action="{% url 'user:logout' %}">
+          <input type="submit" class="btn  profile-button" value="Logout" name="edit" style="padding: 5px 40px; background-color: slateblue; color: white;">
+     </form>
+      </div>
+    </div>
+  </nav>
+  <br>

@@ -1,0 +1,7 @@
+<form method="POST"  class="w-50 m-auto">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>{{ form.as_p }}</label>
+        <input type="email" name="email"  id="email" class="form-control" placeholder="Enter your mail">
+    </div>
+</form>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    {% include 'components/navbar.html' %}
+{% endblock navbar%}
+{% block content %}
+    <h1 style="text-align: center; color: indigo;">Bmi List</h1>
+    <table class="table table-striped">
+        <tr style="background-color: turquoise; color: rgb(94, 92, 92);">
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>BMI</th>
+            <th>Message</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>Action</th>
+        </tr>
+        {% for home in userlist %}
+        <tr >
+            <td>
+                <a href="{% url 'home:bmi_edit' home.id %}">{{ home.user }}</a>
+            </td>
+            <td>{{ home.weight }}</td>
+            <td>{{ home.height }}</td>
+            <td>{{ home.bmi }}</td>
+            <td>{{ home.message}}</td>
+            <td>{{ home.created }}</td>
+            <td>{{ home.modified }}</td>
+            <td>
+                <a class="btn btn-danger" href="{% url 'home:bmi_delete' home.id%}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

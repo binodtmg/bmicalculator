@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color: rgb(245, 243, 239);">
+   
+    {% block navbar %}
+        {% include 'components/navbar.html' %}
+    {% endblock navbar %}
+    {% block content%}
+    <p>BMI</p>
+    <!-- </header>
+    <div class="container">
+        <div class="card-header">BMI Calculator</div>
+        <div class="card-body">
+          <form method="POST" class="w-50 m-auto">
+            {% csrf_token %}
+            <div class="form-group">
+              <label> Name : </label>
+              <input type="namd" name="name" id="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label> Weight : </label>
+              <input type="number" name="weight" id="weight" class="form-control" min="0"  step="any" placeholder="Enter your weight in kg" required>
+            </div>
+            <div class="form-group">
+              <label> Height : </label>
+              <input type="number" name="height" id="height" class="form-control" min="0"  step="any" placeholder="Enter your height in meter" required>
+            </div>
+            {% if bmi %}
+            <div class="form-group">
+              <label> BMI : </label>
+              <input type="number" name="bmi" id="bmi" class="form-control" value="{{ bmi }}">
+            </div>
+            {% endif %}
+            <br>
+            <button type="submit" class="btn btn-success">Calculate BMI</button>
+            <button type="submit" class="btn btn-success">Save BMI</button>
+          </form>
+        </div>
+        {% if bmi %}
+        <div class="card-footer">
+          <h2>Result</h2>
+          <p> Your BMI is {{ bmi }} kg/m2</p>
+          {% if bmi < 18 %}
+          <p style="color: red;">{{ message }}</p>
+          {% endif %}
+          {% if bmi > 18 and bmi < 24.9%}
+          <p style="color: green;">{{ message }}</p>
+          {% endif %}
+          {% if bmi > 25 and bmi < 29.9 %}
+          <p style="color: orange;">{{ message }}</p>
+          {% endif %}
+          {% if bmi > 30 %}
+          <p style="color: red;">{{ message }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div> -->
+    {% endblock content%}
+   
+   
+</body>
+</html>

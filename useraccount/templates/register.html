@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+<body style="background-color: rgb(69, 95, 86);">
+    <nav class="navbar" style="background-color: rgb(54, 52, 52);">
+        <div class="container-fluid" style="background-color: rgb(54, 52, 52); height: 60px;">
+         <h1 style=" color: thistle; padding-top: 10px;">Welcome to Body Mass Index (BMI) Measurement</h1>
+        </div>
+    </nav>
+    <h2 style="color: rgb(229, 230, 208); text-align: center;">User Registration</h2>
+    <form method="POST" style="border: 3px solid #9c9797;  margin: 10px 200px; padding: 50px; text-align: center; background-color: rgb(147, 228, 220); ">
+        <div class="container" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="register" value="Register"/>
+            <p>Already a user? <a href="{% url 'user:login' %}">Login</a></p>
+
+           
+        </div>
+        
+    </form>
+</body>
+</html>
+
+
+<!-- <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="register" value="Register"/>
+</form>
+<p>Already a user? <a href="{% url 'user:login' %}">Login</a></p> -->

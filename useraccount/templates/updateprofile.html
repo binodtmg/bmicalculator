@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    {% include 'components/navbar.html' %}
+{% endblock navbar%}
+ {% block content %}
+ <form method="POST" enctype="multipart/form-data">
+     {% csrf_token%}
+     {{ form.as_p }}
+     <input type="submit" name="submit" value="Submit"/>
+ </form>
+ {% endblock %}

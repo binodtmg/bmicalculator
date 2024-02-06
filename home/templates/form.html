@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    {% include 'components/navbar.html' %}
+{% endblock navbar%}
+
+{% block content%}
+    </header>
+    <div class="container">
+        <div class="card-header" style="text-align: center; background-color: turquoise; color: rgb(100, 94, 94); font-size: 25px;">BMI Calculator</div>
+        <div class="card-body" style="padding-top: 50px;">
+          <form method="POST" class="w-50 m-auto">
+            {% csrf_token %}
+            <div class="form-group">
+              <label> Weight : </label>
+              <input type="number" name="weight" id="weight" class="form-control" min="0"  step="any" placeholder="Enter your weight in kg" required>
+            </div>
+            <div class="form-group">
+              <label> Height : </label>
+              <input type="number" name="height" id="height" class="form-control" min="0"  step="any" placeholder="Enter your height in meter" required>
+            </div>
+            {% if bmi %}
+            <div class="form-group">
+              <label> BMI : </label>
+              <input type="number" name="bmi" id="bmi" class="form-control" value="{{ bmi }}">
+            </div>
+            {% endif %}
+            <br>
+          
+            <button type="submit" class="btn btn-success profile-button" name="calculate">Calculate</button>
+          </form>
+          <!-- <form method="POST" class="w-50 m-auto">
+            {% csrf_token %}
+            <button type="submit" class="btn1 btn-success" name="save">Save</button>
+          </form> -->
+        </div>
+        {% if bmi %}
+        <div class="card-footer">
+          <h2>Result</h2>
+          <p> Your BMI is {{ bmi }} kg/m2</p>
+          {% if bmi < 18 %}
+          <p style="color: red;">{{ message }}</p>
+          {% elif bmi > 18 and bmi < 24.9%}
+          <p style="color: green;">{{ message }}</p>
+          {% elif bmi > 25 and bmi < 29.9 %}
+          <p style="color: orange;">{{ message }}</p>
+          {% elif bmi > 30 %}
+          <p style="color: red;">{{ message }}</p>
+          {% endif %}
+        </div>
+        <br>
+
+        <form action="{% url 'home:sendmail' %}">
+          {% csrf_token %}
+          <button class="btn btn-danger">Send to email</button>
+        </form>
+        {% endif %}
+        
+      </div>
+    </div>
+    {% endblock content%}
+   
